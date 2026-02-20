@@ -10,7 +10,7 @@ export default function Footer() {
               <span className="text-primary">INF</span>NOVA Academy
             </h3>
             <p className="text-sm leading-relaxed text-gray-400">
-              Empowering the next generation of African tech talent through world-class courses and mentorship.
+             Empowering learners worldwide with cutting-edge technology courses. Start your journey to success with expert-led training.
             </p>
           </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} INFNOVA Academy. All rights reserved.
+          &copy; {new Date().getFullYear()} INFNOVA Technologies. All rights reserved.
         </div>
       </div>
     </footer>

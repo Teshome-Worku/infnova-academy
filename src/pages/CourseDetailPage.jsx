@@ -32,50 +32,69 @@ export default function CourseDetailPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      {/* Back to Courses */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-dark text-sm transition-colors"
           >
             <ArrowLeftIcon className="w-4 h-4" />
             Back to Courses
           </Link>
+        </div>
+      </div>
 
-          <span className="inline-block bg-white/20 text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
-            {course.category}
-          </span>
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+            {/* Left: text content */}
+            <div className="flex-1 min-w-0">
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                {course.category}
+              </span>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-4 max-w-3xl">
-            {course.title}
-          </h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-4">
+                {course.title}
+              </h1>
 
-          <p className="text-white/80 max-w-2xl text-sm sm:text-base leading-relaxed mb-6">
-            {course.description}
-          </p>
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-6">
+                {course.description}
+              </p>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/90">
-            <span className="flex items-center gap-1.5">
-              Instructor: <strong>{course.instructor}</strong>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ClockIcon className="w-4 h-4" />
-              {course.duration}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <UsersIcon className="w-4 h-4" />
-              {course.enrolled.toLocaleString()} enrolled
-            </span>
-            <span className="flex items-center gap-1.5">
-              <StarIcon className="w-4 h-4 text-amber-300" />
-              {course.rating} rating
-            </span>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/90">
+                <span className="flex items-center gap-1.5">
+                  Instructor: <strong>{course.instructor}</strong>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <ClockIcon className="w-4 h-4" />
+                  {course.duration}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <UsersIcon className="w-4 h-4" />
+                  {course.enrolled.toLocaleString()} enrolled
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <StarIcon className="w-4 h-4 text-amber-300" />
+                  {course.rating} rating
+                </span>
+              </div>
+
+              <span className="inline-block mt-5 bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                {course.level} Level
+              </span>
+            </div>
+
+            {/* Right: thumbnail */}
+            <div className="mt-6 md:mt-0 md:w-72 lg:w-80 xl:w-96 shrink-0">
+              <img
+                src={course.thumbnail}
+                alt={course.title}
+                className="w-full h-48 md:h-52 lg:h-56 object-cover rounded-xl shadow-lg"
+              />
+            </div>
           </div>
-
-          <span className="inline-block mt-5 bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-            {course.level} Level
-          </span>
         </div>
       </section>
 
