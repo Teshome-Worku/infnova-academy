@@ -52,15 +52,18 @@ export default function CourseCard({ course }) {
         </p>
 
         <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
-          <span className="flex items-center gap-1">
-            <ClockIcon className="w-3.5 h-3.5" />
-            {course.duration}
-          </span>
-          <span className="flex items-center gap-1">
-            <UsersIcon className="w-3.5 h-3.5" />
-            {course.enrolled.toLocaleString()}
-          </span>
-          <span className="flex items-center gap-1 font-medium text-amber-500">
+          <div className='flex items-center gap-4'>
+            <span className="flex items-center gap-1">
+              <ClockIcon className="w-3.5 h-3.5" />
+              {course.duration}
+            </span>
+            <span className="flex items-center gap-1">
+              <UsersIcon className="w-3.5 h-3.5" />
+              {course.enrolled.toLocaleString()}
+            </span>
+          </div>
+          
+          <span className="flex items-center gap-1 font-medium text-amber-400">
             <StarIcon className="w-3.5 h-3.5" />
             {course.rating}
           </span>
