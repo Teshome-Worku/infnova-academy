@@ -1,4 +1,4 @@
-# Infnova Courses
+# infnova-academy
 
 A small React + Vite single-page app that lists courses and shows course details. This README explains the project structure, why key files are organized the way they are (useful talking points for an internship evaluation), how to run the app locally, and deployment notes.
 
