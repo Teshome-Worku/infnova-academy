@@ -5,6 +5,7 @@ import CoursesPage from './pages/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import ComingSoon from './pages/ComingSoon';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/courses/:id" element={<CourseDetailPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
           </Routes>
         </main>
         <Footer />

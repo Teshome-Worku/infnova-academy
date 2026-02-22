@@ -19,7 +19,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-center md:text-left">
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/" className="hover:text-white transition-colors">Courses</Link></li>
-              <li><Link to="/instructors" className="hover:text-white transition-colors">Instructors</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Instructors</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -27,10 +27,10 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white text-sm font-semibold mb-3">Support</h4>
             <ul className="space-y-2 text-sm text-center md:text-left">
-              <li><Link to="/help-center" className="hover:text-white transition-colors">Help Center</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link to="/coming-soon" className="hover:text-white transition-colors">Help Center</Link></li>
+              <li><Link to="/coming-soon" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/coming-soon" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/coming-soon" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
         </div>

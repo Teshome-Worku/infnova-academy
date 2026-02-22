@@ -99,7 +99,7 @@ export default function CourseDetailPage() {
       </section>
 
       {/* Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-20" >
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Left column */}
           <div className="flex-1 min-w-0">

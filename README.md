@@ -103,19 +103,3 @@ Then set `VITE_API_BASE` in your deployment environment (or host the API under `
 This separation (API client + hook + presentation) demonstrates modular architecture and makes the app easier to extend and test.
 
 ---
-
-## Suggested improvements (good talking points)
-
-- Use `import.meta.env.VITE_API_BASE` in `src/lib/api.js` for environment-specific URLs.
-- Integrate `AbortController` in `useFetch` (or accept an abort signal in `fetch` functions) to cancel requests on unmount.
-- Normalize error responses (return consistent `{ status, message }`) for simpler UI handling.
-- Consider `react-query`/`SWR` for caching and background revalidation for shared resources.
-- Add unit tests: mock `fetch` for `api.js` tests and test pages/components with React Testing Library.
-
----
-
-## Deployment notes
-
-- Build with `npm run build`. Serve `dist/` from a static host and ensure the production API URL is configured (either host API under `/api` on same origin or set `VITE_API_BASE`).
-
-Example: set `VITE_API_BASE=https://api.example.com` during build or runtime and use it in `src/lib/api.js`.

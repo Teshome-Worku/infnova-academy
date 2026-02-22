@@ -71,7 +71,7 @@ export default function CoursesPage() {
       </section>
 
       {/* Course Count + Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-44">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-30">
         {!loading && !error && (
           <p className="text-sm text-gray-500 mb-6">
             Showing <span className="font-bold text-dark">{filtered.length}</span> of{' '}
