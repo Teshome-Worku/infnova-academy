@@ -105,7 +105,7 @@ export default function CourseDetailPage() {
           <div className="flex-1 min-w-0">
             {/* Skills */}
             {course.skills && course.skills.length > 0 && (
-              <div className="mb-10">
+              <div className="mb-10 shadow-sm rounded-xl p-6 bg-white border border-gray-200">
                 <h2 className="text-xl font-bold text-dark mb-5 flex items-center gap-2">
                   <BookOpenIcon className="w-5 h-5 text-primary" />
                   What You'll Learn
@@ -125,7 +125,7 @@ export default function CourseDetailPage() {
             )}
 
             {/* Description */}
-            <div className="mb-10">
+            <div className="mb-10 shadow-sm rounded-xl p-6 bg-white border border-gray-200"> 
               <h2 className="text-xl font-bold text-dark mb-4">Course Description</h2>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 {course.description}
@@ -136,7 +136,7 @@ export default function CourseDetailPage() {
             </div>
 
             {/* Instructor */}
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 shadow-sm" >
               <h2 className="text-lg font-bold text-dark mb-4">Your Instructor</h2>
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold shrink-0">
