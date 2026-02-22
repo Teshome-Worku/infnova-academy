@@ -51,18 +51,18 @@ export default function CoursesPage() {
                 className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm text-dark placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
               />
             </div>
-            <div className="flex gap-3 items-center">
+            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
               <input
                 type="text"
                 placeholder="Category"
-                className="w-40 pl-3 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-500 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                className="w-full sm:w-40 pl-3 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-500 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
                 aria-label="Category filter"
               />
 
               <input
                 type="text"
                 placeholder="Level"
-                className="w-36 pl-3 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-500 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 hidden sm:inline-block"
+                className="w-full sm:w-36 pl-3 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-500 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
                 aria-label="Level filter"
               />
             </div>
