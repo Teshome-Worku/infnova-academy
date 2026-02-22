@@ -5,7 +5,9 @@ export default async function handler(req, res) {
     }
 
     const REMOTE = process.env.REMOTE_API_BASE || 'https://infnova-course-api.vercel.app';
-    const target = `${REMOTE}/courses`;
+        const search = req.url && req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+        const target = `${REMOTE}/courses/${encodeURIComponent(id)}${search}`;
+        console.log('proxy /api/courses/:id ->', target);
 
     try {
         const r = await fetch(target, { method: 'GET', headers: { Accept: 'application/json' } });
