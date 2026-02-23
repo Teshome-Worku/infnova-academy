@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/courses/:id", "destination": "/api/courses/[id]?id=:id" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
