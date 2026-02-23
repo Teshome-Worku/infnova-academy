@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch';
 import { ArrowLeftIcon, StarIcon, ClockIcon, UsersIcon, CheckCircleIcon, BookOpenIcon } from '../components/Icons';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
+import NotFoundPage from './NotFoundPage';
 
 const SKILL_COLORS = [
   'bg-blue-50 text-blue-700 border-blue-200',
@@ -27,8 +28,22 @@ export default function CourseDetailPage() {
   const { data: course, loading, error } = useFetch(() => fetchCourseById(id), [id]);
 
   if (loading) return <LoadingSpinner message="Loading course details..." />;
+
+  const errorText = String(error || '').toLowerCase();
+  if (error && (errorText.includes('404') || errorText.includes('not found'))) {
+    return <NotFoundPage />;
+  }
+
   if (error) return <ErrorMessage message={error} onRetry={() => window.location.reload()} />;
-  if (!course) return null;
+
+  const invalidCourseShape = !course || Array.isArray(course) || typeof course !== 'object';
+  if (invalidCourseShape) return <NotFoundPage />;
+
+  const safeDescription = course.description || 'Description coming soon.';
+  const safeInstructor = course.instructor || 'Unknown Instructor';
+  const safeEnrolledCount = Number.isFinite(Number(course.enrolled)) ? Number(course.enrolled) : 0;
+  const safeRating = course.rating ?? 'N/A';
+  const instructorInitials = safeInstructor.split(' ').filter(Boolean).map((n) => n[0]).join('');
 
   return (
     <>
@@ -60,12 +75,12 @@ export default function CourseDetailPage() {
               </h1>
 
               <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-6">
-                {course.description}
+                {safeDescription}
               </p>
 
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/90">
                 <span className="flex items-center gap-1.5">
-                  Instructor: <strong>{course.instructor}</strong>
+                  Instructor: <strong>{safeInstructor}</strong>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <ClockIcon className="w-4 h-4" />
@@ -73,11 +88,11 @@ export default function CourseDetailPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <UsersIcon className="w-4 h-4" />
-                  {course.enrolled.toLocaleString()} enrolled
+                  {safeEnrolledCount.toLocaleString()} enrolled
                 </span>
                 <span className="flex items-center gap-1.5">
                   <StarIcon className="w-4 h-4 text-amber-300" />
-                  {course.rating} rating
+                  {safeRating} rating
                 </span>
               </div>
 
@@ -128,7 +143,7 @@ export default function CourseDetailPage() {
             <div className="mb-10 shadow-sm rounded-xl p-6 bg-white border border-gray-200"> 
               <h2 className="text-xl font-bold text-dark mb-4">Course Description</h2>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                {course.description}
+                {safeDescription}
               </p>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-4">
                 This comprehensive course is designed to provide you with practical, hands-on experience and real-world skills. You'll work on projects that simulate actual industry scenarios, giving you the confidence to apply your knowledge immediately.
@@ -140,10 +155,10 @@ export default function CourseDetailPage() {
               <h2 className="text-lg font-bold text-dark mb-4">Your Instructor</h2>
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold shrink-0">
-                  {course.instructor.split(' ').map(n => n[0]).join('')}
+                  {instructorInitials}
                 </div>
                 <div>
-                  <p className="font-semibold text-dark">{course.instructor}</p>
+                  <p className="font-semibold text-dark">{safeInstructor}</p>
                   <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                     Expert {course.category} professional with over 10 years of industry experience. Passionate about teaching and helping students achieve their career goals.
                   </p>
@@ -155,7 +170,7 @@ export default function CourseDetailPage() {
           {/* Right sidebar */}
           <div className="lg:w-80 shrink-0">
             <div className="sticky top-24 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <p className="text-sm text-gray-500 mb-1">Join {course.enrolled.toLocaleString()} students</p>
+              <p className="text-sm text-gray-500 mb-1">Join {safeEnrolledCount.toLocaleString()} students</p>
 
               <button className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-lg transition-colors mt-3 text-sm">
                 Enroll Now

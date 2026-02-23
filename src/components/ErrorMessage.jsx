@@ -9,6 +9,8 @@ export default function ErrorMessage({ message, onRetry }) {
     lower.includes('upstream returned non-json') ||
     lower.includes('<!doctype') ||
     lower.includes('invalid json') ||
+    lower.includes('course not found') ||
+    lower.includes('not found') ||
     lower.includes('failed to fetch course (404)') ||
     lower.includes('failed to fetch course (400)') ||
     lower.includes('failed to fetch course (500)')
